@@ -68,4 +68,5 @@ class LazyImport(types.ModuleType):
                 object.__getattribute__(self,'__name__')
 
 if disable_lazy_imports:
-    LazyImport = lambda x: __import__(x) and sys.modules[x]
+    def LazyImport(x):
+        return __import__(x) and sys.modules[x]
